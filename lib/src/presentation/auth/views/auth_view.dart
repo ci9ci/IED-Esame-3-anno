@@ -11,15 +11,21 @@ class AuthConnector extends StatelessWidget {
         children: [
           Expanded(
             child: ColoredBox(
-              color: Colors.deepPurple.withOpacity(0.2),
+              color: const Color.fromRGBO(80, 124, 171, 1).withOpacity(0.1),
               child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
-                    Text('Logo'),
-                    Text('Description'),
+                    Text(
+                      'Apul.ia',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 20,
+                          color: Color.fromRGBO(5, 38, 89, 1)),
+                    ),
+                    Text('Oltre ciò che vedi'),
                     SizedBox.shrink(),
                   ],
                 ),
@@ -35,7 +41,16 @@ class AuthConnector extends StatelessWidget {
                   const SizedBox.shrink(),
                   Column(
                     children: const [
-                      Text('Get Started'),
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 16.0),
+                        child: Text(
+                          'Get Started',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                            fontSize: 24,
+                          ),
+                        ),
+                      ),
                       SocialButton(),
                     ],
                   ),

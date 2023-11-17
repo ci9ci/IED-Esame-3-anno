@@ -28,11 +28,16 @@ class _SocialButtonState extends State<SocialButton> {
         curve: Curves.easeInOut,
         height: 56,
         decoration: BoxDecoration(
-          color: isHovered ? Colors.deepPurple.shade700 : Colors.deepPurple,
+          color: isHovered
+              ? const Color.fromRGBO(80, 124, 171, 1)
+              : const Color.fromRGBO(5, 38, 89, 1),
           borderRadius: BorderRadius.circular(8),
         ),
         child: const Center(
-          child: Text('Continue'),
+          child: Text(
+            'Continue',
+            style: TextStyle(color: Colors.white),
+          ),
         ),
       ),
     );
