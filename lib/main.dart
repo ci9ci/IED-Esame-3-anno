@@ -1,7 +1,13 @@
-import 'package:appterzoanno/src/presentation/auth/views/auth_view.dart';
+import 'package:appterzoanno/src/presentation/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  await Supabase.initialize(
+    url: 'https://aohbtrdiieqxurwbclfx.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImFvaGJ0cmRpaWVxeHVyd2JjbGZ4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODM4ODgzMjcsImV4cCI6MTk5OTQ2NDMyN30.wCnmd49cUlyhYuEFZXDBInyuyQDnsT81p39XWwvtvWY',
+  );
   runApp(const MyApp());
 }
 
@@ -25,7 +31,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const AuthConnector(),
+      home: const SplashConnector(),
     );
   }
 }

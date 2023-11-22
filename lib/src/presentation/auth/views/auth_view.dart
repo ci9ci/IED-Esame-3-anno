@@ -1,9 +1,21 @@
+import 'package:appterzoanno/src/core/constants.dart';
 import 'package:appterzoanno/src/presentation/auth/widgets/social_button.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class AuthConnector extends StatelessWidget {
+class AuthConnector extends StatefulWidget {
   const AuthConnector({Key? key}) : super(key: key);
+
+  @override
+  State<AuthConnector> createState() => _AuthConnectorState();
+}
+
+class _AuthConnectorState extends State<AuthConnector> {
+  @override
+  void initState() {
+    super.initState();
+    print(supabase.auth.currentUser);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -29,8 +41,8 @@ class AuthConnector extends StatelessWidget {
                           begin: Alignment.centerRight,
                           end: Alignment.centerLeft,
                           colors: [
-                            Colors.black.withOpacity(0.2),
-                            Colors.black.withOpacity(0.8),
+                            Colors.black.withOpacity(0.5),
+                            Colors.black.withOpacity(0.9),
                           ],
                         ),
                       ),
@@ -100,8 +112,8 @@ class AuthConnector extends StatelessWidget {
                     const SocialButton(),
                   ],
                 ),
-                Column(
-                  children: const [
+                const Column(
+                  children: [
                     Text('IED exam'),
                     Text('Privacy Policy'),
                   ],
