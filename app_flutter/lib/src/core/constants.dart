@@ -1,3 +1,4 @@
+import 'package:appterzoanno/src/presentation/auth/views/auth_view.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -7,4 +8,16 @@ User? get user => supabase.auth.currentUser;
 void goTo(BuildContext context, Widget destination) {
   Navigator.of(context)
       .push(MaterialPageRoute(builder: (context) => destination));
+}
+
+void ifUserDoesntExist(BuildContext context) {
+  if (user == null) {
+    goTo(context, const AuthConnector());
+  }
+}
+
+void ifUserExist(BuildContext context) {
+  if (user == null) {
+    goTo(context, const AuthConnector());
+  }
 }

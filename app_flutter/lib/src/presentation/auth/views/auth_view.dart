@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AuthConnector extends StatefulWidget {
-  const AuthConnector({Key? key}) : super(key: key);
+  const AuthConnector({super.key});
 
   @override
   State<AuthConnector> createState() => _AuthConnectorState();
@@ -13,8 +13,8 @@ class AuthConnector extends StatefulWidget {
 class _AuthConnectorState extends State<AuthConnector> {
   @override
   void initState() {
+    ifUserExist(context);
     super.initState();
-    print(supabase.auth.currentUser);
   }
 
   @override
