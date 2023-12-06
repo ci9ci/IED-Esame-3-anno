@@ -1,9 +1,15 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:test_endpoint/src/data/repositories/api_repositories_impl.dart';
+import 'package:test_endpoint/src/domain/usecases/ask_ai_usecase.dart';
 
 class HomeCubit extends Cubit<HomeState> {
   HomeCubit() : super(HomeInitial());
-  void sendQuestion() {}
+  void sendQuestion(String text) {
+    AskAiUseCase(ApiRepositoryImpl())(AskAiUseCaseParams(text)).then((res) =>
+        res.fold((left) => emit(HomeError(left)),
+            (right) => emit(HomeLoaded(right))));
+  }
 }
 
 abstract class HomeState extends Equatable {}
