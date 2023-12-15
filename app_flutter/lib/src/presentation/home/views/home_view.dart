@@ -32,9 +32,13 @@ class _HomeConnectorState extends State<_HomeConnector> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+        body: Padding(
+      padding: const EdgeInsets.only(top: 90.0, left: 16.0, right: 16.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text('Titolo'),
+          const Text('Ciao Name'), // far prendere il nome dell'utente connesso
+          const Text("Come posso aiutarti?"),
           TextField(
             controller: controller,
             onSubmitted: (text) {
@@ -67,6 +71,6 @@ class _HomeConnectorState extends State<_HomeConnector> {
           })
         ],
       ),
-    );
+    ));
   }
 }
