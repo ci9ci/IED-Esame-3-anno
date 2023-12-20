@@ -29,7 +29,7 @@ class _AuthConnectorState extends State<AuthConnector> {
                 fit: StackFit.expand,
                 children: [
                   Image.asset(
-                    'assets/images/background_image.jpg',
+                    'images/background_image.jpg',
                     fit: BoxFit.cover,
                     width: double.infinity,
                     height: double.infinity,
