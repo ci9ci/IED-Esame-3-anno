@@ -1,4 +1,4 @@
-import 'package:appterzoanno/src/presentation/home/views/home_view.dart';
+import 'package:appterzoanno/src/presentation/splash/views/splash_view.dart';
 import 'package:flutter/material.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -31,7 +31,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: const HomeConnector(),
+      home: const SplashConnector(),
     );
   }
 }

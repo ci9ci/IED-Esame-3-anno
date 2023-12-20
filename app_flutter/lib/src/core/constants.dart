@@ -10,14 +10,16 @@ void goTo(BuildContext context, Widget destination) {
       .push(MaterialPageRoute(builder: (context) => destination));
 }
 
-void ifUserDoesntExist(BuildContext context) {
+Future<void> ifUserDoesntExist(BuildContext context) async {
+  await Future.delayed(const Duration(milliseconds: 300));
   if (user == null) {
     goTo(context, const AuthConnector());
   }
 }
 
-void ifUserExist(BuildContext context) {
-  if (user == null) {
+Future<void> ifUserExist(BuildContext context) async {
+  await Future.delayed(const Duration(milliseconds: 300));
+  if (user != null) {
     goTo(context, const AuthConnector());
   }
 }

@@ -20,7 +20,7 @@ class _AuthConnectorState extends State<AuthConnector> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
+      body: Column(
         children: [
           Expanded(
             child: ColoredBox(

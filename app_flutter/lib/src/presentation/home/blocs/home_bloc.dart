@@ -1,3 +1,4 @@
+import 'package:appterzoanno/src/data/models/result.dart';
 import 'package:appterzoanno/src/data/repositories/api_repositories_impl.dart';
 import 'package:appterzoanno/src/domain/usecases/ask_ai_usecase.dart';
 import 'package:equatable/equatable.dart';
@@ -38,7 +39,7 @@ class HomeError extends HomeState {
 
 class HomeLoaded extends HomeState {
   HomeLoaded(this.answer);
-  String answer;
+  Result answer;
   @override
   List<Object?> get props => [];
 }
