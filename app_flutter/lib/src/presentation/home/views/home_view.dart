@@ -38,13 +38,27 @@ class _HomeConnectorState extends State<_HomeConnector> {
             width: double.infinity,
             height: double.infinity,
           ),
+          Positioned.fill(
+            child: Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.centerRight,
+                  end: Alignment.centerLeft,
+                  colors: [
+                    Colors.black.withOpacity(0.5),
+                    Colors.black.withOpacity(0.9),
+                  ],
+                ),
+              ),
+            ),
+          ),
           Padding(
             padding: const EdgeInsets.only(top: 90.0, left: 16.0, right: 16.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'Ciao ${user?.userMetadata?['user_name']} 👋',
+                  'Ciao ${user?.userMetadata?['user_name']},',
                   style: GoogleFonts.figtree(
                     fontWeight: FontWeight.bold,
                     fontSize: 22,
@@ -59,11 +73,36 @@ class _HomeConnectorState extends State<_HomeConnector> {
                     color: const Color.fromRGBO(194, 232, 255, 1),
                   ),
                 ),
-                TextField(
-                  controller: controller,
-                  onSubmitted: (text) {
-                    context.read<HomeCubit>().sendQuestion(text);
-                  },
+                Padding(
+                  padding: const EdgeInsets.only(
+                      top: 40.0,
+                      right: 8,
+                      left: 8), // Aggiungi spazio nella parte superiore
+                  child: Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(8.0),
+                      border: Border.all(
+                        color: const Color.fromRGBO(194, 232, 255, 1),
+                        width: 2.0,
+                      ),
+                    ),
+                    height: 120.0,
+                    child: TextField(
+                      controller: controller,
+                      maxLines: null,
+                      style: const TextStyle(color: Colors.white),
+                      decoration: InputDecoration(
+                        hintText:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                            'In tellus urna, pretium eget rutrum in, imperdiet ac lorem. Nunc eget luctus orci, quis imperdiet nulla.',
+                        hintStyle:
+                            TextStyle(color: Colors.white.withOpacity(0.5)),
+                        border: InputBorder.none,
+                        contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16.0, vertical: 16.0),
+                      ),
+                    ),
+                  ),
                 ),
                 BlocBuilder<HomeCubit, HomeState>(
                   builder: (context, state) {
