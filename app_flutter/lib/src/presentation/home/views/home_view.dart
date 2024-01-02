@@ -1,5 +1,6 @@
 import 'package:appterzoanno/src/core/constants.dart';
 import 'package:appterzoanno/src/presentation/home/blocs/home_bloc.dart';
+import 'package:appterzoanno/src/presentation/home/views/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -33,11 +34,12 @@ class _HomeConnectorState extends State<_HomeConnector> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            'images/background_image.jpg',
+            'images/sfondo.jpg',
             fit: BoxFit.cover,
             width: double.infinity,
             height: double.infinity,
           ),
+          const Navbar(), // Navbar sopra l'immagine
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
