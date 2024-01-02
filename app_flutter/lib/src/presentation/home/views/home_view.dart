@@ -39,7 +39,7 @@ class _HomeConnectorState extends State<_HomeConnector> {
             width: double.infinity,
             height: double.infinity,
           ),
-          const Navbar(), // Navbar sopra l'immagine
+          const Navbar(), // Place Navbar above the image
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -118,8 +118,8 @@ class _HomeConnectorState extends State<_HomeConnector> {
                   ],
                 ),
                 const SizedBox(
-                    height:
-                        16.0), // Aggiungi spazio tra il container e il TextField
+                  height: 16.0,
+                ), // Add space between the container and TextField
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
@@ -141,7 +141,9 @@ class _HomeConnectorState extends State<_HomeConnector> {
                           TextStyle(color: Colors.white.withOpacity(0.5)),
                       border: InputBorder.none,
                       contentPadding: const EdgeInsets.symmetric(
-                          horizontal: 16.0, vertical: 16.0),
+                        horizontal: 16.0,
+                        vertical: 16.0,
+                      ),
                     ),
                   ),
                 ),
