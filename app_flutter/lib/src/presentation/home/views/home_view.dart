@@ -17,6 +17,9 @@ class HomeConnector extends StatelessWidget {
   }
 }
 
+bool _isSelected = false;
+bool _isSelected2 = false;
+
 class _HomeConnector extends StatefulWidget {
   const _HomeConnector({Key? key});
 
@@ -39,7 +42,7 @@ class _HomeConnectorState extends State<_HomeConnector> {
             width: double.infinity,
             height: double.infinity,
           ),
-          const Navbar(), // Place Navbar above the image
+          const Navbar(), // Navbar sopra l'immagine
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -119,7 +122,7 @@ class _HomeConnectorState extends State<_HomeConnector> {
                 ),
                 const SizedBox(
                   height: 16.0,
-                ), // Add space between the container and TextField
+                ), // Aggiungi spazio tra il container e il TextField
                 Container(
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(8.0),
@@ -145,6 +148,65 @@ class _HomeConnectorState extends State<_HomeConnector> {
                         vertical: 16.0,
                       ),
                     ),
+                  ),
+                ),
+                const SizedBox(height: 16.0),
+                Text(
+                  'Luogo',
+                  style: GoogleFonts.figtree(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18,
+                    color: Colors.white,
+                  ),
+                ),
+
+                Padding(
+                  padding: const EdgeInsets.only(top: 16.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      ChoiceChip(
+                        label: const Text('Lecce'),
+                        selected: _isSelected,
+                        onSelected: (bool newBoolValue) {
+                          setState(() {
+                            _isSelected = newBoolValue;
+                          });
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          side: const BorderSide(
+                            color: Color.fromRGBO(194, 232, 255, 1),
+                            width: 2.0,
+                          ),
+                        ),
+                        backgroundColor: Colors.transparent,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      const SizedBox(width: 8.0),
+                      // Ripeti i Chip aggiungendo il numero necessario
+                      ChoiceChip(
+                        label: const Text('Bari'),
+                        selected: _isSelected2,
+                        onSelected: (bool newBoolValue) {
+                          setState(() {
+                            _isSelected2 = newBoolValue;
+                          });
+                        },
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                          side: const BorderSide(
+                            color: Color.fromRGBO(194, 232, 255, 1),
+                            width: 2.0,
+                          ),
+                        ),
+                        backgroundColor: Colors.transparent,
+                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
+                      ),
+                      const SizedBox(width: 8.0),
+                      // Ripeti i Chip aggiungendo il numero necessario
+                      // ...
+                    ],
                   ),
                 ),
               ],
