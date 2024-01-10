@@ -1,6 +1,7 @@
 import 'package:appterzoanno/src/core/constants.dart';
 import 'package:appterzoanno/src/presentation/home/blocs/home_bloc.dart';
-import 'package:appterzoanno/src/presentation/home/views/widgets/navbar.dart';
+import 'package:appterzoanno/src/presentation/home/widgets/choicechip.dart';
+import 'package:appterzoanno/src/presentation/home/widgets/navbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -16,9 +17,6 @@ class HomeConnector extends StatelessWidget {
     );
   }
 }
-
-bool _isSelected = false;
-bool _isSelected2 = false;
 
 class _HomeConnector extends StatefulWidget {
   const _HomeConnector({Key? key});
@@ -42,7 +40,6 @@ class _HomeConnectorState extends State<_HomeConnector> {
             width: double.infinity,
             height: double.infinity,
           ),
-          const Navbar(), // Navbar sopra l'immagine
           Positioned.fill(
             child: Container(
               decoration: BoxDecoration(
@@ -57,6 +54,8 @@ class _HomeConnectorState extends State<_HomeConnector> {
               ),
             ),
           ),
+          const Navbar(), // Navbar sopra l'immagine
+
           Padding(
             padding: const EdgeInsets.only(top: 90.0, left: 16.0, right: 16.0),
             child: Column(
@@ -76,7 +75,7 @@ class _HomeConnectorState extends State<_HomeConnector> {
                                 style: GoogleFonts.figtree(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 22,
-                                  color: const Color.fromRGBO(194, 232, 255, 1),
+                                  color: Colors.white,
                                 ),
                               ),
                               Text(
@@ -84,7 +83,7 @@ class _HomeConnectorState extends State<_HomeConnector> {
                                 style: GoogleFonts.figtree(
                                   fontWeight: FontWeight.bold,
                                   fontSize: 24,
-                                  color: const Color.fromRGBO(194, 232, 255, 1),
+                                  color: Colors.white,
                                 ),
                               ),
                             ],
@@ -140,6 +139,7 @@ class _HomeConnectorState extends State<_HomeConnector> {
                       hintText:
                           'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
                           'In tellus urna, pretium eget rutrum in, imperdiet ac lorem. Nunc eget luctus orci, quis imperdiet nulla.',
+                      hintMaxLines: 5,
                       hintStyle:
                           TextStyle(color: Colors.white.withOpacity(0.5)),
                       border: InputBorder.none,
@@ -160,50 +160,15 @@ class _HomeConnectorState extends State<_HomeConnector> {
                   ),
                 ),
 
-                Padding(
-                  padding: const EdgeInsets.only(top: 16.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
+                const Padding(
+                  padding: EdgeInsets.only(top: 16.0),
+                  child: Wrap(
                     children: [
-                      ChoiceChip(
-                        label: const Text('Lecce'),
-                        selected: _isSelected,
-                        onSelected: (bool newBoolValue) {
-                          setState(() {
-                            _isSelected = newBoolValue;
-                          });
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          side: const BorderSide(
-                            color: Color.fromRGBO(194, 232, 255, 1),
-                            width: 2.0,
-                          ),
-                        ),
-                        backgroundColor: Colors.transparent,
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      const SizedBox(width: 8.0),
+                      ChipCheck(label: 'Lecce'),
+                      SizedBox(width: 8.0),
                       // Ripeti i Chip aggiungendo il numero necessario
-                      ChoiceChip(
-                        label: const Text('Bari'),
-                        selected: _isSelected2,
-                        onSelected: (bool newBoolValue) {
-                          setState(() {
-                            _isSelected2 = newBoolValue;
-                          });
-                        },
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20.0),
-                          side: const BorderSide(
-                            color: Color.fromRGBO(194, 232, 255, 1),
-                            width: 2.0,
-                          ),
-                        ),
-                        backgroundColor: Colors.transparent,
-                        materialTapTargetSize: MaterialTapTargetSize.shrinkWrap,
-                      ),
-                      const SizedBox(width: 8.0),
+                      ChipCheck(label: 'Bari'),
+                      SizedBox(width: 8.0),
                       // Ripeti i Chip aggiungendo il numero necessario
                       // ...
                     ],
