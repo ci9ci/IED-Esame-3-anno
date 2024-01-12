@@ -9,10 +9,16 @@ Deno.serve(async (req) => {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
   }
-  if (req.method === 'OPTION'){
+  if (req.method === 'OPTIONS'){
     return new Response ('ok', { headers: corsHeaders })
   }
+
+  console.log("Ciao!")
+
   const { query } = await req.json()
+
+  console.log("Ciao 2!")
+
  
   return fetch('https://api.openai.com/v1/chat/completions', {
     method: 'POST',
@@ -26,7 +32,6 @@ Deno.serve(async (req) => {
        { role: "system", content: "how may I assist you today?"},
        { role: "user", content: query},
       ],
-      prompt: query,
       max_tokens: 256,
       temperature: 0,
       stream: false,

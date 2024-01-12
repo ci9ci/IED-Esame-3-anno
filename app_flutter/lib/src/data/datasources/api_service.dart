@@ -9,7 +9,7 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'query': text}),
     );
-    return res.body;
+    return jsonDecode(res.body)['choices'][0]['message']['content'];
   }
 
   Future<String> getImage(String text) async {
@@ -18,6 +18,6 @@ class ApiService {
       headers: {'Content-Type': 'application/json'},
       body: jsonEncode({'query': text}),
     );
-    return res.body;
+    return jsonDecode(res.body)['data'][0]['url'];
   }
 }

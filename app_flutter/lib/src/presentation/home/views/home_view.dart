@@ -27,7 +27,6 @@ class _HomeConnector extends StatefulWidget {
 
 class _HomeConnectorState extends State<_HomeConnector> {
   final controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +95,11 @@ class _HomeConnectorState extends State<_HomeConnector> {
                             borderRadius: BorderRadius.circular(20.0),
                           ),
                           padding: const EdgeInsets.only(
-                              right: 16, left: 16, top: 8, bottom: 8),
+                            right: 16,
+                            left: 16,
+                            top: 8,
+                            bottom: 8,
+                          ),
                           child: Row(
                             mainAxisSize: MainAxisSize.min,
                             children: [
@@ -177,6 +180,45 @@ class _HomeConnectorState extends State<_HomeConnector> {
               ],
             ),
           ),
+          Positioned(
+            bottom: 16.0,
+            right: 16.0,
+            child: ElevatedButton(
+              onPressed: () {
+                context.read<HomeCubit>().sendQuestion(controller.text);
+              },
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(30.0),
+                ),
+                backgroundColor: const Color(0xFFC2E8FF),
+                padding: const EdgeInsets.only(
+                  right: 16,
+                  left: 16,
+                  top: 8,
+                  bottom: 8,
+                ),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  const Icon(
+                    Icons.send,
+                    size: 20.0,
+                  ),
+                  const SizedBox(width: 8.0),
+                  Text(
+                    'Invia',
+                    style: GoogleFonts.figtree(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
           BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
               if (state is HomeLoading) {
@@ -184,33 +226,27 @@ class _HomeConnectorState extends State<_HomeConnector> {
                   child: CircularProgressIndicator(),
                 );
               }
-              return Row(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  IconButton(
-                    onPressed: () {
-                      context.read<HomeCubit>().sendQuestion(controller.text);
-                    },
-                    icon: const Icon(Icons.send),
-                  ),
-                ],
+              return BlocBuilder<HomeCubit, HomeState>(
+                builder: (context, state) {
+                  if (state is HomeError) {
+                    return Text('Error: ${state.error}');
+                  }
+                  if (state is HomeLoaded) {
+                    return Column(
+                      children: [
+                        Image.network(state.answer.imageURL),
+                        Text(
+                          state.answer.story,
+                          style: const TextStyle(
+                              fontSize: 12,
+                              color: Color.fromRGBO(194, 232, 255, 1)),
+                        ),
+                      ],
+                    );
+                  }
+                  return const SizedBox();
+                },
               );
-            },
-          ),
-          BlocBuilder<HomeCubit, HomeState>(
-            builder: (context, state) {
-              if (state is HomeError) {
-                return Text('Error: ${state.error}');
-              }
-              if (state is HomeLoaded) {
-                return Column(
-                  children: [
-                    Image.network(state.answer.imageURL),
-                    Text(state.answer.story),
-                  ],
-                );
-              }
-              return const SizedBox();
             },
           ),
         ],

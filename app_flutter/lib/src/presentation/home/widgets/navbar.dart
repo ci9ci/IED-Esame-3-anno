@@ -16,23 +16,14 @@ class Navbar extends StatelessWidget {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                const Column(
-                  children: [
-                    Icon(
-                      Icons.home,
-                      color: Colors.white,
-                    ),
-                  ],
+                const Icon(
+                  Icons.home,
+                  color: Colors.white,
                 ),
-                const Column(
-                  children: [
-                    Icon(
-                      Icons.pin_drop,
-                      color: Colors.white,
-                    ),
-                  ],
+                const Icon(
+                  Icons.pin_drop,
+                  color: Colors.white,
                 ),
-                // Inserisci qui il Container con il simbolo '+'
                 Container(
                   decoration: BoxDecoration(
                     color: const Color.fromRGBO(194, 232, 255, 1),
@@ -48,27 +39,25 @@ class Navbar extends StatelessWidget {
                     ),
                   ),
                 ),
-                const Column(
-                  children: [
-                    Icon(
-                      Icons.chat_bubble_outline_rounded,
-                      color: Colors.white,
-                    ),
-                  ],
+                const Icon(
+                  Icons.chat_bubble_outline_rounded,
+                  color: Colors.white,
                 ),
-                const Column(
-                  children: [
-                    Icon(
-                      Icons.search,
-                      color: Colors.white,
+                CircleAvatar(
+                  backgroundColor: Colors.white,
+                  child: ClipOval(
+                    child: Image.network(
+                      'URL_dell_immagine',
+                      width: 40,
+                      height: 40,
+                      fit: BoxFit.cover,
                     ),
-                  ],
+                  ),
                 ),
               ],
             ),
           ),
         ),
-        // Rimuovi il Container() che è vuoto
         Expanded(child: ListView())
       ],
     );
