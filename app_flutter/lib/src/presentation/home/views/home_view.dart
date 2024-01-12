@@ -232,16 +232,58 @@ class _HomeConnectorState extends State<_HomeConnector> {
                     return Text('Error: ${state.error}');
                   }
                   if (state is HomeLoaded) {
-                    return Column(
-                      children: [
-                        Image.network(state.answer.imageURL),
-                        Text(
-                          state.answer.story,
-                          style: const TextStyle(
-                              fontSize: 12,
-                              color: Color.fromRGBO(194, 232, 255, 1)),
+                    return Container(
+                      decoration: const BoxDecoration(
+                        image: DecorationImage(
+                          image: AssetImage('images/sfondo.jpg'),
+                          fit: BoxFit.cover,
                         ),
-                      ],
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            "Immagine Generata",
+                            style: GoogleFonts.figtree(
+                              fontSize: 20,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.white,
+                            ),
+                          ),
+                          const SizedBox(),
+                          Container(
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10.0),
+                              border: Border.all(
+                                color: const Color.fromRGBO(194, 232, 255, 1),
+                                width: 2.0,
+                              ),
+                            ),
+                            child: ClipRRect(
+                              borderRadius: BorderRadius.circular(8.0),
+                              child: Image.network(
+                                state.answer.imageURL,
+                                width: 400,
+                                height: 200,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(),
+                          //Image.network(state.answer.imageURL),
+                          Padding(
+                            padding: const EdgeInsets.only(
+                                top: 16, left: 32, right: 32),
+                            child: Text(
+                              state.answer.story,
+                              style: const TextStyle(
+                                fontSize: 12,
+                                color: Color.fromRGBO(194, 232, 255, 1),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
                     );
                   }
                   return const SizedBox();
