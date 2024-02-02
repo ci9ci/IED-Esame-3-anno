@@ -30,6 +30,8 @@ class _HomeConnectorState extends State<_HomeConnector> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBody: true,
+      bottomNavigationBar: const Navbar(),
       body: Stack(
         fit: StackFit.expand,
         children: [
@@ -53,171 +55,136 @@ class _HomeConnectorState extends State<_HomeConnector> {
               ),
             ),
           ),
-          const Navbar(), // Navbar sopra l'immagine
-
-          Padding(
-            padding: const EdgeInsets.only(top: 90.0, left: 16.0, right: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          ListView(
+            children: [
+              Padding(
+                padding:
+                    const EdgeInsets.only(top: 90.0, left: 16.0, right: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Row(
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Ciao ${user?.userMetadata?['user_name']},',
-                                style: GoogleFonts.figtree(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22,
-                                  color: Colors.white,
-                                ),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Text(
+                                    'Ciao ${user?.userMetadata?['user_name']},',
+                                    style: GoogleFonts.figtree(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 22,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                  Text(
+                                    "Come posso aiutarti?",
+                                    style: GoogleFonts.figtree(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 24,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
                               ),
-                              Text(
-                                "Come posso aiutarti?",
-                                style: GoogleFonts.figtree(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                ),
+                            ),
+                            const SizedBox(width: 8.0),
+                            Container(
+                              decoration: BoxDecoration(
+                                color: const Color.fromRGBO(194, 232, 255, 1),
+                                borderRadius: BorderRadius.circular(20.0),
                               ),
-                            ],
-                          ),
-                        ),
-                        const SizedBox(width: 8.0),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(194, 232, 255, 1),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          padding: const EdgeInsets.only(
-                            right: 16,
-                            left: 16,
-                            top: 8,
-                            bottom: 8,
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.cloud_upload,
-                                size: 20.0,
+                              padding: const EdgeInsets.only(
+                                right: 16,
+                                left: 16,
+                                top: 8,
+                                bottom: 8,
                               ),
-                              const SizedBox(width: 8.0),
-                              Text(
-                                'Upload',
-                                style: GoogleFonts.figtree(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.min,
+                                children: [
+                                  const Icon(
+                                    Icons.cloud_upload,
+                                    size: 20.0,
+                                  ),
+                                  const SizedBox(width: 8.0),
+                                  Text(
+                                    'Upload',
+                                    style: GoogleFonts.figtree(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                ],
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 16.0,
-                ), // Aggiungi spazio tra il container e il TextField
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    border: Border.all(
-                      color: const Color.fromRGBO(194, 232, 255, 1),
-                      width: 2.0,
-                    ),
-                  ),
-                  height: 150.0,
-                  child: TextField(
-                    controller: controller,
-                    maxLines: null,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText:
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                          'In tellus urna, pretium eget rutrum in, imperdiet ac lorem. Nunc eget luctus orci, quis imperdiet nulla.',
-                      hintMaxLines: 5,
-                      hintStyle:
-                          TextStyle(color: Colors.white.withOpacity(0.5)),
-                      border: InputBorder.none,
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 16.0,
+                    const SizedBox(
+                      height: 16.0,
+                    ), // Aggiungi spazio tra il container e il TextField
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(8.0),
+                        border: Border.all(
+                          color: const Color.fromRGBO(194, 232, 255, 1),
+                          width: 2.0,
+                        ),
+                      ),
+                      height: 150.0,
+                      child: TextField(
+                        controller: controller,
+                        maxLines: null,
+                        style: const TextStyle(color: Colors.white),
+                        decoration: InputDecoration(
+                          hintText:
+                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                              'In tellus urna, pretium eget rutrum in, imperdiet ac lorem. Nunc eget luctus o...',
+                          hintMaxLines: 5,
+                          hintStyle:
+                              TextStyle(color: Colors.white.withOpacity(0.5)),
+                          border: InputBorder.none,
+                          contentPadding: const EdgeInsets.symmetric(
+                            horizontal: 16.0,
+                            vertical: 16.0,
+                          ),
+                        ),
                       ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 16.0),
-                Text(
-                  'Luogo',
-                  style: GoogleFonts.figtree(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
-
-                const Padding(
-                  padding: EdgeInsets.only(top: 16.0),
-                  child: Wrap(
-                    children: [
-                      ChipCheck(label: 'Lecce'),
-                      SizedBox(width: 8.0),
-                      // Ripeti i Chip aggiungendo il numero necessario
-                      ChipCheck(label: 'Bari'),
-                      SizedBox(width: 8.0),
-                      // Ripeti i Chip aggiungendo il numero necessario
-                      // ...
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-          Positioned(
-            bottom: 16.0,
-            right: 16.0,
-            child: ElevatedButton(
-              onPressed: () {
-                context.read<HomeCubit>().sendQuestion(controller.text);
-              },
-              style: ElevatedButton.styleFrom(
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30.0),
-                ),
-                backgroundColor: const Color(0xFFC2E8FF),
-                padding: const EdgeInsets.only(
-                  right: 16,
-                  left: 16,
-                  top: 8,
-                  bottom: 8,
-                ),
-              ),
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  const Icon(
-                    Icons.send,
-                    size: 20.0,
-                  ),
-                  const SizedBox(width: 8.0),
-                  Text(
-                    'Invia',
-                    style: GoogleFonts.figtree(
-                      fontSize: 20.0,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.black,
+                    const SizedBox(height: 16.0),
+                    Text(
+                      'Luogo',
+                      style: GoogleFonts.figtree(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
                     ),
-                  ),
-                ],
+
+                    const Padding(
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: [
+                          ChipCheck(label: 'Lecce'),
+
+                          // Ripeti i Chip aggiungendo il numero necessario
+                          ChipCheck(label: 'Bari'),
+                          // Ripeti i Chip aggiungendo il numero necessario
+                          // ...
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               ),
-            ),
+            ],
           ),
           BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
@@ -290,6 +257,90 @@ class _HomeConnectorState extends State<_HomeConnector> {
                 },
               );
             },
+          ),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(
+                bottom: 20 + kBottomNavigationBarHeight,
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<HomeCubit>().sendQuestion(controller.text);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      backgroundColor: const Color(0xFFC2E8FF),
+                      padding: const EdgeInsets.only(
+                        right: 16,
+                        left: 16,
+                        top: 8,
+                        bottom: 8,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.send,
+                          size: 20.0,
+                        ),
+                        const SizedBox(width: 8.0),
+                        Text(
+                          'Invia',
+                          style: GoogleFonts.figtree(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  ElevatedButton(
+                    onPressed: () {
+                      context.read<HomeCubit>().sendQuestion(controller.text);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(30.0),
+                      ),
+                      backgroundColor: const Color(0xFFC2E8FF),
+                      padding: const EdgeInsets.only(
+                        right: 16,
+                        left: 16,
+                        top: 8,
+                        bottom: 8,
+                      ),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        const Icon(
+                          Icons.send,
+                          size: 20.0,
+                        ),
+                        const SizedBox(width: 8.0),
+                        Text(
+                          'Invia',
+                          style: GoogleFonts.figtree(
+                            fontSize: 20.0,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ),
         ],
       ),

@@ -15,7 +15,7 @@ class _ChipCheckState extends State<ChipCheck> {
   @override
   Widget build(BuildContext context) {
     return ChoiceChip(
-      label: const Text('Lecce'),
+      label: Text(widget.label),
       selected: _isSelected,
       onSelected: (bool newBoolValue) {
         setState(() {
