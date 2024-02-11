@@ -173,11 +173,38 @@ class _HomeConnectorState extends State<_HomeConnector> {
                         runSpacing: 8,
                         children: [
                           ChipCheck(label: 'Lecce'),
-
-                          // Ripeti i Chip aggiungendo il numero necessario
                           ChipCheck(label: 'Bari'),
-                          // Ripeti i Chip aggiungendo il numero necessario
-                          // ...
+                          ChipCheck(label: 'Brindisi'),
+                          ChipCheck(label: 'Ostuni'),
+                          ChipCheck(label: 'Gallipoli'),
+                          ChipCheck(label: 'Polignano a Mare'),
+                          ChipCheck(label: 'Monopoli'),
+                          ChipCheck(label: 'Altamura'),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 16.0),
+
+                    const SizedBox(height: 16.0),
+                    Text(
+                      'Genere',
+                      style: GoogleFonts.figtree(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 18,
+                        color: Colors.white,
+                      ),
+                    ),
+                    const Padding(
+                      padding: EdgeInsets.only(top: 16.0),
+                      child: Wrap(
+                        spacing: 8,
+                        runSpacing: 8,
+                        children: [
+                          ChipCheck(label: 'Action'),
+                          ChipCheck(label: 'Adventure'),
+                          ChipCheck(label: 'Animation'),
+                          ChipCheck(label: 'War'),
+                          ChipCheck(label: 'Historical'),
                         ],
                       ),
                     ),
@@ -258,43 +285,54 @@ class _HomeConnectorState extends State<_HomeConnector> {
               );
             },
           ),
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: Container(
+              height: 300,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    Colors.transparent,
+                    Colors.black.withOpacity(0.9),
+                  ],
+                ),
+              ),
+            ),
+          ),
           Align(
             alignment: Alignment.bottomCenter,
             child: Padding(
               padding: const EdgeInsets.only(
-                bottom: 20 + kBottomNavigationBarHeight,
+                bottom: 32 + kBottomNavigationBarHeight,
               ),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   ElevatedButton(
-                    onPressed: () {
-                      context.read<HomeCubit>().sendQuestion(controller.text);
-                    },
+                    onPressed: () {},
                     style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      backgroundColor: const Color(0xFFC2E8FF),
-                      padding: const EdgeInsets.only(
-                        right: 16,
-                        left: 16,
-                        top: 8,
-                        bottom: 8,
-                      ),
-                    ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(24.0),
+                        ),
+                        backgroundColor: const Color(0xFFC2E8FF),
+                        padding: const EdgeInsets.all(16)),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const Icon(
-                          Icons.send,
-                          size: 20.0,
+                          Icons.view_in_ar,
+                          size: 24.0,
+                          color: Colors.black,
                         ),
                         const SizedBox(width: 8.0),
                         Text(
-                          'Invia',
+                          'AR Map',
                           style: GoogleFonts.figtree(
-                            fontSize: 20.0,
+                            fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),
@@ -308,29 +346,24 @@ class _HomeConnectorState extends State<_HomeConnector> {
                       context.read<HomeCubit>().sendQuestion(controller.text);
                     },
                     style: ElevatedButton.styleFrom(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(30.0),
-                      ),
-                      backgroundColor: const Color(0xFFC2E8FF),
-                      padding: const EdgeInsets.only(
-                        right: 16,
-                        left: 16,
-                        top: 8,
-                        bottom: 8,
-                      ),
-                    ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(30.0),
+                        ),
+                        backgroundColor: const Color.fromRGBO(82, 154, 210, 1),
+                        padding: const EdgeInsets.all(16)),
                     child: Row(
                       mainAxisSize: MainAxisSize.min,
                       children: [
                         const Icon(
-                          Icons.send,
-                          size: 20.0,
+                          Icons.lens_blur,
+                          size: 24.0,
+                          color: Colors.black,
                         ),
                         const SizedBox(width: 8.0),
                         Text(
-                          'Invia',
+                          'Genera',
                           style: GoogleFonts.figtree(
-                            fontSize: 20.0,
+                            fontSize: 18.0,
                             fontWeight: FontWeight.bold,
                             color: Colors.black,
                           ),

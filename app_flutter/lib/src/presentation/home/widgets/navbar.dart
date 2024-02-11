@@ -21,13 +21,13 @@ class Navbar extends StatelessWidget {
           ),
           Container(
             decoration: BoxDecoration(
-              color: const Color.fromRGBO(194, 232, 255, 1),
+              color: const Color.fromRGBO(82, 154, 210, 1),
               borderRadius: BorderRadius.circular(16),
             ),
             padding: const EdgeInsets.all(13),
             child: const Icon(
               Icons.add_circle_outline,
-              color: Colors.white,
+              color: Colors.black,
             ),
           ),
           const Icon(

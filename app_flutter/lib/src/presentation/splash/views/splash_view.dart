@@ -28,9 +28,39 @@ class _SplashConnectorState extends State<SplashConnector> {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Splash'),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            Image.asset(
+              'images/sfondo.jpg',
+              fit: BoxFit.cover,
+              width: double.infinity,
+              height: double.infinity,
+            ),
+            Positioned.fill(
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.centerRight,
+                    end: Alignment.centerLeft,
+                    colors: [
+                      Colors.black.withOpacity(0.5),
+                      Colors.black.withOpacity(0.9),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+            // Centered Image
+            Image.asset(
+              'images/your_centered_image.jpg',
+              width: 200, // Adjust the width as needed
+              height: 200, // Adjust the height as needed
+            ),
+          ],
+        ),
       ),
     );
   }
