@@ -38,7 +38,7 @@ class Navbar extends StatelessWidget {
             backgroundColor: Colors.white,
             child: ClipOval(
               child: Image.network(
-                'URL_dell_immagine',
+                'images/profile.png',
                 width: 40,
                 height: 40,
                 fit: BoxFit.cover,

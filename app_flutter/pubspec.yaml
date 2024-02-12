@@ -29,5 +29,6 @@ flutter:
   assets:
   - images/background_image.jpg
   - images/sfondo.jpg
+  - images/profile.png
   uses-material-design: true
 
