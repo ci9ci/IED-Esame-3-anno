@@ -55,9 +55,9 @@ class _SplashConnectorState extends State<SplashConnector> {
             ),
             // Centered Image
             Image.asset(
-              'images/your_centered_image.jpg',
-              width: 200, // Adjust the width as needed
-              height: 200, // Adjust the height as needed
+              'images/logo.png',
+              width: 100, // Adjust the width as needed
+              height: 100, // Adjust the height as needed
             ),
           ],
         ),

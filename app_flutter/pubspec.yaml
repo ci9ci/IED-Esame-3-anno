@@ -30,5 +30,6 @@ flutter:
   - images/background_image.jpg
   - images/sfondo.jpg
   - images/profile.png
+  - images/logo.png
   uses-material-design: true
 
