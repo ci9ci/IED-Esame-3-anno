@@ -55,158 +55,160 @@ class _HomeConnectorState extends State<_HomeConnector> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(top: 90.0, left: 16.0, right: 16.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Row(
-                      children: [
-                        Expanded(
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                'Ciao ${user?.userMetadata?['user_name']},',
-                                style: GoogleFonts.figtree(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 22,
-                                  color: Colors.white,
-                                ),
+          ListView(
+            physics: const AlwaysScrollableScrollPhysics(),
+            padding: const EdgeInsets.only(
+              top: 90.0,
+              left: 16.0,
+              right: 16.0,
+              bottom: 160,
+            ),
+            children: [
+              Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Ciao ${user?.userMetadata?['user_name']},',
+                              style: GoogleFonts.figtree(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22,
+                                color: Colors.white,
                               ),
-                              Text(
-                                "Come posso aiutarti?",
-                                style: GoogleFonts.figtree(
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                ),
+                            ),
+                            Text(
+                              "Come posso aiutarti?",
+                              style: GoogleFonts.figtree(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 24,
+                                color: Colors.white,
                               ),
-                            ],
-                          ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 8.0),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: const Color.fromRGBO(194, 232, 255, 1),
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          padding: const EdgeInsets.only(
-                            right: 16,
-                            left: 16,
-                            top: 8,
-                            bottom: 8,
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.min,
-                            children: [
-                              const Icon(
-                                Icons.cloud_upload,
-                                size: 20.0,
-                              ),
-                              const SizedBox(width: 8.0),
-                              Text(
-                                'Upload',
-                                style: GoogleFonts.figtree(
-                                  fontSize: 14.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
+                      ),
+                      const SizedBox(width: 8.0),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: const Color.fromRGBO(194, 232, 255, 1),
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                      ],
+                        padding: const EdgeInsets.only(
+                          right: 16,
+                          left: 16,
+                          top: 8,
+                          bottom: 8,
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            const Icon(
+                              Icons.cloud_upload,
+                              size: 20.0,
+                            ),
+                            const SizedBox(width: 8.0),
+                            Text(
+                              'Upload',
+                              style: GoogleFonts.figtree(
+                                fontSize: 14.0,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              const SizedBox(
+                height: 16.0,
+              ), // Aggiungi spazio tra il container e il TextField
+              Container(
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8.0),
+                  border: Border.all(
+                    color: const Color.fromRGBO(194, 232, 255, 1),
+                    width: 2.0,
+                  ),
+                ),
+                height: 150.0,
+                child: TextField(
+                  controller: controller,
+                  maxLines: null,
+                  style: const TextStyle(color: Colors.white),
+                  decoration: InputDecoration(
+                    hintText:
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
+                        'In tellus urna, pretium eget rutrum in, imperdiet ac lorem. Nunc eget luctus o...',
+                    hintMaxLines: 5,
+                    hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
+                    border: InputBorder.none,
+                    contentPadding: const EdgeInsets.symmetric(
+                      horizontal: 16.0,
+                      vertical: 16.0,
                     ),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 16.0),
+              Text(
+                'Luogo',
+                style: GoogleFonts.figtree(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white,
+                ),
+              ),
+
+              const Padding(
+                padding: EdgeInsets.only(top: 16.0),
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    ChipCheck(label: 'Lecce'),
+                    ChipCheck(label: 'Bari'),
+                    ChipCheck(label: 'Brindisi'),
+                    ChipCheck(label: 'Ostuni'),
+                    ChipCheck(label: 'Gallipoli'),
+                    ChipCheck(label: 'Polignano a Mare'),
+                    ChipCheck(label: 'Monopoli'),
+                    ChipCheck(label: 'Altamura'),
                   ],
                 ),
-                const SizedBox(
-                  height: 16.0,
-                ), // Aggiungi spazio tra il container e il TextField
-                Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(8.0),
-                    border: Border.all(
-                      color: const Color.fromRGBO(194, 232, 255, 1),
-                      width: 2.0,
-                    ),
-                  ),
-                  height: 150.0,
-                  child: TextField(
-                    controller: controller,
-                    maxLines: null,
-                    style: const TextStyle(color: Colors.white),
-                    decoration: InputDecoration(
-                      hintText:
-                          'Lorem ipsum dolor sit amet, consectetur adipiscing elit. '
-                          'In tellus urna, pretium eget rutrum in, imperdiet ac lorem. Nunc eget luctus o...',
-                      hintMaxLines: 5,
-                      hintStyle:
-                          TextStyle(color: Colors.white.withOpacity(0.5)),
-                      border: InputBorder.none,
-                      contentPadding: const EdgeInsets.symmetric(
-                        horizontal: 16.0,
-                        vertical: 16.0,
-                      ),
-                    ),
-                  ),
-                ),
-                const SizedBox(height: 16.0),
-                Text(
-                  'Luogo',
-                  style: GoogleFonts.figtree(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
-                ),
+              ),
+              const SizedBox(height: 16.0),
 
-                const Padding(
-                  padding: EdgeInsets.only(top: 16.0),
-                  child: Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: [
-                      ChipCheck(label: 'Lecce'),
-                      ChipCheck(label: 'Bari'),
-                      ChipCheck(label: 'Brindisi'),
-                      ChipCheck(label: 'Ostuni'),
-                      ChipCheck(label: 'Gallipoli'),
-                      ChipCheck(label: 'Polignano a Mare'),
-                      ChipCheck(label: 'Monopoli'),
-                      ChipCheck(label: 'Altamura'),
-                    ],
-                  ),
+              const SizedBox(height: 16.0),
+              Text(
+                'Genere',
+                style: GoogleFonts.figtree(
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18,
+                  color: Colors.white,
                 ),
-                const SizedBox(height: 16.0),
-
-                const SizedBox(height: 16.0),
-                Text(
-                  'Genere',
-                  style: GoogleFonts.figtree(
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                    color: Colors.white,
-                  ),
+              ),
+              const Padding(
+                padding: EdgeInsets.only(top: 16.0),
+                child: Wrap(
+                  spacing: 8,
+                  runSpacing: 8,
+                  children: [
+                    ChipCheck(label: 'Action'),
+                    ChipCheck(label: 'Adventure'),
+                    ChipCheck(label: 'Animation'),
+                    ChipCheck(label: 'War'),
+                    ChipCheck(label: 'Historical'),
+                  ],
                 ),
-                const Padding(
-                  padding: EdgeInsets.only(top: 16.0),
-                  child: Wrap(
-                    spacing: 8,
-                    runSpacing: 8,
-                    children: [
-                      ChipCheck(label: 'Action'),
-                      ChipCheck(label: 'Adventure'),
-                      ChipCheck(label: 'Animation'),
-                      ChipCheck(label: 'War'),
-                      ChipCheck(label: 'Historical'),
-                    ],
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
           BlocBuilder<HomeCubit, HomeState>(
             builder: (context, state) {
@@ -228,8 +230,9 @@ class _HomeConnectorState extends State<_HomeConnector> {
                           fit: BoxFit.cover,
                         ),
                       ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                      child: ListView(
+                        padding: const EdgeInsets.only(
+                            right: 32, left: 32, bottom: 80),
                         children: [
                           Text(
                             "Immagine Generata",
@@ -258,6 +261,7 @@ class _HomeConnectorState extends State<_HomeConnector> {
                               ),
                             ),
                           ),
+
                           const SizedBox(),
                           //Image.network(state.answer.imageURL),
                           Padding(
